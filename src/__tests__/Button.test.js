@@ -1,12 +1,13 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react'
 import '@testing-library/jest-dom'
-import App from '../App'
 import Button from '../components/button';
 
-test('renders button', async () => {
+test('renders button with correct label', () => {
+  render(<Button label="Click me" whenClicked={() => {}} />);
 
-  render(<Button />)
+  const buttonElement = screen.getByRole('button', { name: "Click me" });
 
-  expect(screen.getByRole('button')).toBeDefined()
-})
+  expect(buttonElement).toBeInTheDocument(); // Check if the button exists
+});
+
