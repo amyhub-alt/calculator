@@ -46,16 +46,77 @@ describe('<App/> component', () => {
     });
 
 
+    test('operator buttons update the state properly', async () => {
+        const user = userEvent.setup();
+        render(<App/>);
 
+        const display = screen.getByRole("status");
 
+        const buttonTwo = screen.getByText("2");
+        await user.click(buttonTwo);
+        expect(display.textContent.slice(-1)).toBe("2");
 
-// test('operator buttons update the state properly', () => {
-//     render(<Button label="Click me" whenClicked={() => {}} />);
-    
-//     const buttonElement = screen.getByRole('button', { name: "Click me" });
-    
-//     expect(buttonElement).toBeInTheDocument(); // Check if the button exists
-//     });
+        const buttonPlus = screen.getByText("+");
+        await user.click(buttonPlus);
+        expect(display.textContent.slice(-1)).toBe("+");
 
+        const buttonThree = screen.getByText("3");
+        await user.click(buttonThree);
+        expect(display.textContent.slice(-1)).toBe("3");
 
+        const buttonEqual = screen.getByText("=");
+        await user.click(buttonEqual);
+        expect(display.textContent.slice(-1)).toBe("5");
+        });
+
+    test('equation cleared after completing an equation', async () => {
+        const user = userEvent.setup();
+        render(<App/>);
+
+        const display = screen.getByRole("status");
+
+        const buttonTwo = screen.getByText("2");
+        const buttonPlus = screen.getByText("+");
+        const buttonThree = screen.getByText("3");
+        const buttonEqual = screen.getByText("=");
+
+        await user.click(buttonTwo);
+        await user.click(buttonPlus);
+        await user.click(buttonThree);
+        await user.click(buttonEqual);
+
+        expect(display).toHaveTextContent("5");
+
+        const buttonSeven = screen.getByText("7");
+        await user.click(buttonSeven);
+
+        expect(display).toHaveTextContent("7");
+        });
+
+    test('adding onto an equation after completing an equation', async () => {
+        const user = userEvent.setup();
+        render(<App/>);
+
+        const display = screen.getByRole("status");
+
+        const buttonTwo = screen.getByText("2");
+        const buttonPlus = screen.getByText("+");
+        const buttonThree = screen.getByText("3");
+        const buttonEqual = screen.getByText("=");
+
+        await user.click(buttonTwo);
+        await user.click(buttonPlus);
+        await user.click(buttonThree);
+        await user.click(buttonEqual);
+
+        expect(display).toHaveTextContent("5");
+
+        const buttonMinus = screen.getByText("-");
+        await user.click(buttonMinus);
+
+        const buttonSeven = screen.getByText("7");
+        await user.click(buttonSeven);
+
+        expect(display).toHaveTextContent("5-7");
+        });
 });
