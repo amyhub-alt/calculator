@@ -1,17 +1,10 @@
 .app {
-  /* display: flex; */
+  display: flex;
   justify-content: center; 
   align-items: center; 
   height: 100vh; 
-  background-color: #f1f1f1; 
+  background-color: white; 
   margin: 0px auto;
-  width: 40%;
+  width: 50%;
  }  
 
-.display {
-  font-size: 3rem;
-  padding: 20px;
-  background-color: #333;
-  color: white;
-  /* border-radius: 10px; */
-}
