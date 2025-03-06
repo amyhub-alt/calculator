@@ -64,6 +64,7 @@ function App () {
         handleClearEntry={handleClearEntry}
         handleAllClear={handleAllClear}
         handlePercentage={handlePercentage}
+      
       />
     </div>
   );

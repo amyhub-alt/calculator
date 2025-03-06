@@ -15,7 +15,7 @@
 }
 
 .display {
-  font-size: 3rem;
+  font-size: 4rem;
   padding: 20px;
   background-color: #a7a5b2;
   color: #46454a;
@@ -26,6 +26,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+  font-family: 'CalculatorFont', sans-serif;
 
   
 }
@@ -49,7 +50,7 @@ button {
   width: 60px;
   height: 60px;
   /* padding: 15px; */
-  font-size: 18px;
+  font-size: 34px;
   border: none;
   cursor: pointer;
   color: #46454a;
@@ -59,6 +60,7 @@ button {
   justify-content: center;
   transition: background 0.3s ease;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Added drop shadow */
+
 }
 
 button:hover {
