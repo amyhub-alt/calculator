@@ -55,16 +55,17 @@ function App () {
   };
 
 
+
   return(
     <div className="app">
       <Calculator
         displayValue={displayValue}
+        isResultDisplayed={isResultDisplayed} 
         handleClick={handleClick}
         calculateResult={calculateResult}
         handleClearEntry={handleClearEntry}
         handleAllClear={handleAllClear}
         handlePercentage={handlePercentage}
-      
       />
     </div>
   );

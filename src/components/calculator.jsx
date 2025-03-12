@@ -3,11 +3,19 @@ import Button from './button';
 import Display from './display';
 import "./calculator.css";
 
-const Calculator = ({ displayValue, handleClick, calculateResult, handleClearEntry, handleAllClear, handlePercentage }) => {
+const Calculator = ({ 
+    displayValue, 
+    isResultDisplayed,
+    handleClick, 
+    calculateResult, 
+    handleClearEntry, 
+    handleAllClear, 
+    handlePercentage,
+}) => {
    
 return(
     <div className="calculator">
-        <Display value={displayValue} />
+        <Display value={displayValue} isResultDisplayed={isResultDisplayed}/>
         <div className="buttons">
         <div className="button-row row-1">
           <Button label="%" whenClicked={() => handlePercentage()} />

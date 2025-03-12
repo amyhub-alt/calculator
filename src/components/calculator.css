@@ -15,21 +15,42 @@
 }
 
 .display {
-  font-size: 4rem;
-  padding: 20px;
+  font-size: 3rem;
+  padding: 10px 20px;
   background-color: #a7a5b2;
   color: #46454a;
   border-radius: 20px;
-  width: calc(100% - 20px); /* Full width minus padding */
-  box-sizing: border-box; /* Include padding in width calculation */
+  width: calc(100% - 40px); /* Ensures display takes full width */
   height: 80px;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+  align-items: center; /* Center vertically */
   font-family: 'CalculatorFont', sans-serif;
-
-  
+  white-space: nowrap; /* Keep text on one line */
+  overflow: hidden; /* Prevent overflow */
 }
+
+/* Equation: Text aligns to right, grows leftward */
+.display.equation {
+  text-align: right;
+  justify-content: flex-end;
+  direction: ltr;
+}
+
+/* Short result: Keep right-aligned */
+.display.result {
+  text-align: right;
+  justify-content: flex-end;
+  direction: ltr;
+}
+
+/* Long result: Move to the left only if too long */
+.display.result-long {
+  text-align: left;
+  justify-content: flex-start;
+  direction: ltr;
+}
+
+
 
 .buttons {
   display: flex;
@@ -87,3 +108,5 @@ button:active {
 .row-4 button {
   background-color: #c7eafb; 
 }
+
+
